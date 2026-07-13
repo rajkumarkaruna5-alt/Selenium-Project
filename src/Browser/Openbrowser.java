@@ -79,7 +79,7 @@ public class Openbrowser {
 
         //Close all browser windows
         driver.quit();
-        
+
     }
 
 }
