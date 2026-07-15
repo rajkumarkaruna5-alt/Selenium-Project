@@ -1,4 +1,4 @@
-package Browser;
+package Navigate;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
