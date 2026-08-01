@@ -37,12 +37,21 @@ Expected Result:
         System.out.println("Page Title: "+title);
 
         WebElement enteremail = driver.findElement(By.xpath("//input[@id='Enteryouremail']"));
-        enteremail.sendKeys("abcd1234");
+        enteremail.sendKeys("rajdon380@gmail.com");
         Thread.sleep(4000);
 
         driver.findElement(By.xpath("//span[@class='app-button__content']")).click();
-        Thread.sleep(6000);
-        driver.close();
+        Thread.sleep(4000);
+
+        driver.findElement(By.xpath("//div[@class='full-width-wrapper verify-code']//input[1]")).sendKeys("3");
+        driver.findElement(By.xpath("//input[2]")).sendKeys("6");
+        driver.findElement(By.xpath("//input[3]")).sendKeys("5");
+        driver.findElement(By.xpath("//input[4]")).sendKeys("1");
+        driver.findElement(By.xpath("//input[5]")).sendKeys("2");
+        driver.findElement(By.xpath("//input[6]")).sendKeys("5");
+
+
+
 
     }
 
