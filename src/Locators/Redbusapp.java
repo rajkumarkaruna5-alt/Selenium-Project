@@ -45,7 +45,7 @@ public class Redbusapp {
         driver.findElement(By.xpath("//button[@aria-label='Search buses']")).click();
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("//div[@aria-label='SLEEPER (176)']")).click();//doubt
+        driver.findElement(By.xpath("//div[contains(@aria-label,'SLEEPER ')]")).click();//doubt
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//div[text()='V Bus Holidays']")).click();
@@ -54,7 +54,7 @@ public class Redbusapp {
         driver.findElement(By.xpath("//div[@aria-label='Login to get exciting offers']//button[@aria-label='Close']")).click();
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("//span[@id=\"U18\"]")).click();
+        driver.findElement(By.xpath("//span[@id='U18']")).click();
         Thread.sleep(2000);
 
         driver.findElement(By.xpath("//span[text()='Board/Drop point']")).click();
@@ -70,26 +70,26 @@ public class Redbusapp {
         phone.sendKeys("9783764752");
         Thread.sleep(2000);
 
-        WebElement email = driver.findElement(By.xpath("//input[@placeholder=\"Enter email id\"]"));
+        WebElement email = driver.findElement(By.xpath("//input[@placeholder='Enter email id']"));
         email.sendKeys("rajkumar@gmail.com");
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("//div[@aria-label=\"State of Residence\"]")).click();
+        driver.findElement(By.xpath("//div[@aria-label='State of Residence']")).click();
 
-        WebElement state = driver.findElement(By.xpath("//input[@aria-label=\"Search for state\"]"));
+        WebElement state = driver.findElement(By.xpath("//input[@aria-label='Search for state']"));
         state.sendKeys("Tamil Nadu");
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//div[text()='Tamil Nadu']")).click();
         Thread.sleep(2000);
 
-        WebElement name = driver.findElement(By.xpath("//input[@placeholder=\"Enter your Name\"]"));
+        WebElement name = driver.findElement(By.xpath("//input[@placeholder='Enter your Name']"));
         name.sendKeys("Rajkumar");
 
-        WebElement age = driver.findElement(By.xpath("//input[@placeholder=\"Enter Age\"]"));
+        WebElement age = driver.findElement(By.xpath("//input[@placeholder='Enter Age']"));
         age.sendKeys("28");
 
-        driver.findElement(By.xpath("//span[@id=\":rk:\"]")).click();//doubt
+        driver.findElement(By.xpath("//span[text()='Male']/../..")).click();//doubt
 
     }
 
