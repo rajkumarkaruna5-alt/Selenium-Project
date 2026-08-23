@@ -1,9 +1,9 @@
-package Javascript;
+package Javascript.Scroll;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Scroll {
+public class Scrollyoutube {
 
 
 
@@ -18,6 +18,7 @@ public class Scroll {
         WebElement searchbar = driver.findElement(By.xpath("//input[@name='search_query']"));
         searchbar.sendKeys("Forza horizon 6", Keys.ENTER);
         Thread.sleep(4000);
+
 
         WebElement nextvideo = null;
 

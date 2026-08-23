@@ -24,9 +24,9 @@ public class Unsplash {
 
     }
 
-    public static void single_images(WebElement other_images, String image1) throws IOException, InterruptedException {
+    public static void single_images(WebElement element, String image1) throws IOException, InterruptedException {
 
-        File screenshotAs = other_images.getScreenshotAs(OutputType.FILE);
+        File screenshotAs = element.getScreenshotAs(OutputType.FILE);
         File path1 = new File("C:/Users/Rajkumar/IdeaProjects/Selinum Project/Screenshots/"+image1+".png");
         Files.copy(screenshotAs, path1);
         Thread.sleep(2000);
