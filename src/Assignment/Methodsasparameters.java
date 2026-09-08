@@ -1,43 +1,37 @@
-package Dropdown;
+package Assignment;
 
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.List;
 
 public class Methodsasparameters {
 
-    //public static WebDriver driver;
-    //public static WebDriver driver1;
-    //public static WebDriver driver2;
 
+    public static void Google_apps( String app) throws InterruptedException, IOException {
 
-    public static void Google_apps(WebDriver driver, String app) throws InterruptedException, IOException {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
 
-        if (app.equalsIgnoreCase("maps")) {
+        driver.get("https://www.google.com/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        Thread.sleep(2000);
 
-            driver.manage().window().maximize();
-            Thread.sleep(2000);
+        WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
+        googleapps.click();
+        Thread.sleep(2000);
 
-            driver.get("https://www.google.com/");
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            Thread.sleep(2000);
+        WebElement frame = driver.findElement(By.xpath("//iframe[@name='app']"));
+        driver.switchTo().frame(frame);
+        Thread.sleep(2000);
 
-            WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
-            googleapps.click();
-            Thread.sleep(2000);
+        if ("maps".contains(app.toLowerCase())) {
 
-            WebElement frame = driver.findElement(By.xpath("//iframe[@name='app']"));
-            driver.switchTo().frame(frame);
-            Thread.sleep(2000);
 
             WebElement maps = driver.findElement(By.xpath("//span[@data-text='Maps']"));
             maps.click();
@@ -63,23 +57,8 @@ public class Methodsasparameters {
 
 
 
-        else if (app.equalsIgnoreCase("youtube")) {
+        else if ("youtube".contains(app.toLowerCase())) {
 
-
-            driver.manage().window().maximize();
-            Thread.sleep(2000);
-
-            driver.get("https://www.google.com/");
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            Thread.sleep(2000);
-
-            WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
-            googleapps.click();
-            Thread.sleep(2000);
-
-            WebElement frame = driver.findElement(By.xpath("//iframe[@name='app']"));
-            driver.switchTo().frame(frame);
-            Thread.sleep(2000);
 
             WebElement youtube = driver.findElement(By.xpath("//span[@data-text='YouTube']"));
             youtube.click();
@@ -100,24 +79,9 @@ public class Methodsasparameters {
         }
 
 
-        
-        else if (app.equalsIgnoreCase("playstore")) {
 
+        else if ("playstore".contains(app.toLowerCase())) {
 
-            driver.manage().window().maximize();
-            Thread.sleep(2000);
-
-            driver.get("https://www.google.com/");
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            Thread.sleep(2000);
-
-            WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
-            googleapps.click();
-            Thread.sleep(2000);
-
-            WebElement frame1 = driver.findElement(By.xpath("//iframe[@name='app']"));
-            driver.switchTo().frame(frame1);
-            Thread.sleep(2000);
 
             WebElement playstore = driver.findElement(By.xpath("//span[@data-text='Play']"));
             playstore.click();
@@ -137,6 +101,14 @@ public class Methodsasparameters {
             Thread.sleep(2000);
         }
 
+        else
+        {
+            System.out.println("Invalid app selection");
+        }
+
+        Thread.sleep(3000);
+        driver.quit();
+
 
     }
 
@@ -145,8 +117,8 @@ public class Methodsasparameters {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        WebDriver driver = new ChromeDriver();
-        Google_apps(driver, "youtube");
+        Google_apps("Play");
+
 
     }
 }

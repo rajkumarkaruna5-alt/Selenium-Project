@@ -9,11 +9,13 @@ import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 import java.util.List;
 
-public class actionclass {
+public class actionClass {
 
+
+    public static WebDriver driver;
 
     public static void flipkart() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         Thread.sleep(1000);
@@ -34,7 +36,7 @@ public class actionclass {
 
         WebElement sportsbooksmore = driver.findElement(By.xpath("//span[text()='Sports, Books & More']"));
 
-        //mouse over
+        //Mouse over
         Actions actions = new Actions(driver);
         actions.moveToElement(sportsbooksmore).perform();
         Thread.sleep(2000);
@@ -89,10 +91,46 @@ public class actionclass {
 
     }
 
+    public static void dragAndDrop() throws InterruptedException {
+
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+        Thread.sleep(1000);
+
+        driver.get("https://vinothqaacademy.com/mouse-event/");
+        Thread.sleep(6000);
+
+        Actions action = new Actions(driver);
+
+        //Double Click
+        WebElement doubleclick = driver.findElement(By.xpath("//button[@id='doubleBtn']"));
+        action.doubleClick(doubleclick).perform();
+        Thread.sleep(2000);
+
+        //Right Click
+        WebElement rightclick = driver.findElement(By.xpath("//button[@id='rightBtn']"));
+        action.contextClick(rightclick).perform();
+        Thread.sleep(2000);
+
+        //Drag and Drop
+        WebElement dragitem = driver.findElement(By.xpath("//div[@id='dragItem']"));
+        WebElement dropzone = driver.findElement(By.xpath("//div[@id='dropZone']"));
+
+        action.dragAndDrop(dragitem,dropzone);
+        Thread.sleep(2000);
+
+        WebElement Hoveritem = driver.findElement(By.xpath("//div[@id='tooltipTarget']"));
+        action.moveToElement(Hoveritem).perform();
+
+
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
 
-        flipkart();
+        //flipkart();
+        dragAndDrop();
 
 
     }
